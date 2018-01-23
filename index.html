@@ -93,6 +93,36 @@
     <p v-show="success">There has been an success!</p>
   </div>
 
+  <div id="app7">
+    <h2>Looping with v-for</h2>
+    <ul>
+      <li v-for="character in characters">{{character}}</li>
+    </ul>
+
+    <!-- Cicling in li -->
+    <ul>
+      <!-- Ninja object with index -->
+      <li v-for="(ninja, index) in ninjas">
+        <span>name:</span> {{index}} - {{ninja.name}}
+        <span>age:</span> {{ninja.age}}
+      </li>
+    </ul>
+
+    <!-- Cicling in HTML5 template element -->
+    <template v-for="(ninja, index) in ninjas">
+      <h3>{{index}} . {{ninja.name}}</h3>
+      <p>{{ninja.age}}</p>
+    </template>
+
+    <!-- Cicling inside ninjas object index -->
+    <template v-for="ninja in ninjas">
+      <template v-for="(val, key) in ninja">
+        <h3>{{key}} . {{val}}</h3>
+      </template>
+    </template>
+
+  </div>
+
   <div class="space"></div>
   <!-- put this file on scope of #app -->
   <script src="app.js"></script>

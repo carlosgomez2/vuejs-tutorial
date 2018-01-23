@@ -107,3 +107,15 @@ const app6 = new Vue({
     success: false
   }
 })
+
+let app7 = new Vue({
+  el: '#app7',
+  data: {
+    characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+    ninjas: [
+      {name: 'Ryu', age: 25},
+      {name: 'Ken', age: 55},
+      {name: 'yoshi', age: 10}
+    ]
+  }
+})
