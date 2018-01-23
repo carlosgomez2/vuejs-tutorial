@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{greet('day')}}</h1>
+    <h2>Bind data</h2>
+    <p>Name: {{name}}</p>
+    <p>Job: {{job}}</p>
+
+    <!-- Bind data -->
+    <a v-bind:href="website" target="_blank">encrypted google here</a>
+    <!-- Bind data shortcut -->
+    <!-- <a :href="website" target="_blank">encrypted google here</a> -->
+    <!-- Bind html -->
+    <p v-html="websiteTag"></p>
+  </div>
+
+  <div id="app2">
+    <h2>Events</h2>
+    <!-- <button v-on:click="age++">Add a year</button>
+    <button v-on:click="age- -">Subtract a year</button> -->
+    <!-- Event modifiers -->
+    <button @click.once="add(1)">Add a year</button>
+    <button v-on:click="subtract(1)">Subtract a year</button>
+    <button @dblclick="add(10)">Add 10 years</button>
+    <button v-on:dblclick="subtract(10)">Subtract 10 years</button>
+    <p>My age is: {{age}}</p>
+
+    <div id="canvas" v-on:mousemove="updateXY">
+      {{x}}, {{y}}
+    </div>
+
+    <br />
+
+
+    <h2>Event modifier</h2>
+    <a v-on:click.prevent="click" href="https://youtube.com">encrypted google with alert</a>
+  </div>
+
+  <div id="app3">
+    <h2>Keyboard Events</h2>
+    <label>Name:</label>
+    <!-- <input type="text" v-on:keyup="logName"> -->
+    <input type="text" v-model="name">
+    <span>{{name}}</span>
+    <label>Age</label>
+    <!-- <input type="text" v-on:keyup="logAge"> -->
+    <input type="text" v-model="age">
+    <span>{{age}}</span>
+  </div>
+
+  <div id="app4">
+    <h2>Computed properties</h2>
+    <button v-on:click="a++">Add to A</button>
+    <button v-on:click="b++">Add to B</button>
+    <p>A - {{a}}</p>
+    <p>B - {{b}}</p>
+    <p>Age + A = {{addToA}}</p>
+    <p>Age + B = {{addToB}}</p>
+  </div>
+
+  <div id="app5">
+    <h2>Dinamic CSS</h2>
+    <h4>Example 1</h4>
+    <div v-on:click="available = !available" v-bind:class="{available: available}">
+      <span>Ryu</span>
+    </div>
+    <h4>Example 2</h4>
+    <div v-bind:class="compClasses">
+      <button @click="nearby = !nearby">Toogle Nearby</button>
+      <button @click="available = !available">Toogle Available</button>
+      <span>Ryu</span>
+    </div>
+  </div>
+
+  <div id="app6">
+    <h2>Conditionals (v-if &amp; v-show)</h2>
+    <button v-on:click="error = !error">Toogle error</button>
+    <button v-on:click="success = !success">Toogle success</button>
+    <!-- if and show have the same function but if doesn't show element on the DOM -->
+    <p v-if="error">There has been an error!</p>
+    <p v-else-if="success">There has been an success!</p>
+    <!-- Show gives to element style, display: none, and puts the element on the DOM, that's the sutil difference -->
+    <p v-show="error">There has been an error!</p>
+    <p v-show="success">There has been an success!</p>
+  </div>
+
+  <div class="space"></div>
+  <!-- put this file on scope of #app -->
+  <script src="app.js"></script>
+</body>
+</html>
