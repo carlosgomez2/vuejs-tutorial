@@ -120,7 +120,22 @@
         <h3>{{key}} . {{val}}</h3>
       </template>
     </template>
+  </div>
 
+  <div id="punchbagGame">
+    <!-- Bag image -->
+    <div id="bag" v-bind:class="{burst: ended}"></div>
+
+    <!-- Bag health -->
+    <div id="bag-health">
+      <div v-bind:style="{width: health + '%'}"></div>
+    </div>
+
+    <!-- Game controls -->
+    <div id="controls">
+      <button v-on:click="punch" v-show="!ended">Punch</button>
+      <button v-on:click="restart">Restart</button>
+    </div>
   </div>
 
   <div class="space"></div>
